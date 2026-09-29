@@ -1,656 +1,465 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Movie</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price Calculator</title>
 
-    <link rel="Website Icon" type="png" href="image/theatre.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e88ff'/%3E%3Cstop offset='1' stop-color='%230b35d9'/%3E%3C/linearGradient%3E%3ClinearGradient id='green' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2300d9a6'/%3E%3Cstop offset='1' stop-color='%2338e68b'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffe45c'/%3E%3Cstop offset='1' stop-color='%23ffae00'/%3E%3C/linearGradient%3E%3Cfilter id='shadow' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeDropShadow dx='0' dy='10' stdDeviation='10' flood-opacity='.22'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='512' height='512' rx='105' fill='url(%23bg)'/%3E%3Cg filter='url(%23shadow)'%3E%3Crect x='76' y='164' width='165' height='230' rx='35' fill='%23fff'/%3E%3Crect x='98' y='105' width='121' height='80' rx='25' fill='%23fff'/%3E%3Crect x='118' y='124' width='18' height='42' rx='9' fill='%23d8e3f5'/%3E%3Crect x='151' y='124' width='18' height='42' rx='9' fill='%23d8e3f5'/%3E%3Crect x='184' y='124' width='18' height='42' rx='9' fill='%23d8e3f5'/%3E%3Cpath d='M158 220h-30v30H98v48h30v30h48v-30h30v-48h-30z' fill='%231d63e8'/%3E%3Crect x='248' y='174' width='174' height='230' rx='30' transform='rotate(8 248 174)' fill='%23fff'/%3E%3Crect x='275' y='198' width='120' height='58' rx='16' transform='rotate(8 275 198)' fill='%230d55c9'/%3E%3Ctext x='289' y='239' transform='rotate(8 289 239)' font-family='Arial,sans-serif' font-size='30' font-weight='700' fill='%23fff'%3EMMK%3C/text%3E%3Cg fill='%231e73ed'%3E%3Crect x='275' y='275' width='52' height='45' rx='12' transform='rotate(8 275 275)'/%3E%3Crect x='339' y='284' width='52' height='45' rx='12' transform='rotate(8 339 284)'/%3E%3Crect x='268' y='335' width='52' height='45' rx='12' transform='rotate(8 268 335)'/%3E%3Crect x='332' y='344' width='52' height='45' rx='12' transform='rotate(8 332 344)'/%3E%3C/g%3E%3Cg fill='%23fff' font-family='Arial,sans-serif' font-size='28' font-weight='700'%3E%3Ctext x='291' y='308' transform='rotate(8 291 308)'%3E%2B%3C/text%3E%3Ctext x='356' y='317' transform='rotate(8 356 317)'%3E−%3C/text%3E%3Ctext x='283' y='368' transform='rotate(8 283 368)'%3E×%3C/text%3E%3Ctext x='348' y='377' transform='rotate(8 348 377)'%3E÷%3C/text%3E%3C/g%3E%3Ccircle cx='390' cy='394' r='48' fill='url(%23gold)'/%3E%3Ccircle cx='390' cy='394' r='36' fill='none' stroke='%23ffca28' stroke-width='5'/%3E%3Ctext x='374' y='407' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='%23fff'%3E₭%3C/text%3E%3C/g%3E%3Cpath d='M252 148c39-31 76-39 108-72' fill='none' stroke='url(%23green)' stroke-width='18' stroke-linecap='round'/%3E%3Cpath d='M348 76l48-12-12 48z' fill='%2338e68b'/%3E%3Cpath d='M91 401c35 10 68 12 102 4' fill='none' stroke='%23001f9e' stroke-width='8' opacity='.35'/%3E%3C/svg%3E">
 
-    <!-- bootstrap link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Apple / iOS -->
+    <link rel="apple-touch-icon"
+          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='105' fill='%231e63e8'/%3E%3Cpath d='M256 100c-15 0-27 12-27 27v102h-102c-15 0-27 12-27 27s12 27 27 27h102v102c0 15 12 27 27 27s27-12 27-27V283h102c15 0 27-12 27-27s-12-27-27-27H283V127c0-15-12-27-27-27z' fill='white'/%3E%3C/svg%3E">
 
-    <!-- font-awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- swiperjs link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    <!-- css link -->
-    <link rel="stylesheet" href="style.css">
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, "Noto Sans Myanmar", sans-serif;
+    background: #f4f6f9;
+    color: #172033;
+}
 
-    <style>
-        .btn {
-            transition: .4s;
-        }
-    </style>
+.container {
+    max-width: 700px;
+    margin: auto;
+}
 
+h1 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #667085;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    height: 55px;
+    padding: 0 15px;
+    border: 2px solid #d9dee8;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+}
+
+input:focus {
+    border-color: #2563eb;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #f1f3f6;
+    padding: 12px 5px;
+    font-size: 13px;
+}
+
+td {
+    padding: 14px 5px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.profit {
+    font-weight: bold;
+}
+
+.percent {
+    font-weight: bold;
+}
+
+.info {
+    margin-top: 15px;
+    padding: 14px;
+    background: #f8fafc;
+    border-radius: 10px;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.empty {
+    text-align: center;
+    color: #98a2b3;
+    padding: 25px;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 13px;
+    }
+
+    th,
+    td {
+        font-size: 11px;
+        padding: 11px 3px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <!-- navbar section start -->
-    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" style="background: black !important;">
-        <div class="container-fluid">
-            <a class="navbar-brand text-danger" href="#home"><i class="fa-solid fa-video me-2"></i>My Movie</a>
-            <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon rounded"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active text-danger" aria-current="page" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" aria-current="page" href="#release">Release</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" aria-current="page" href="#popular">Popular</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" aria-current="page" href="#movies">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" aria-current="page" href="#series">Series</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" aria-current="page" href="#contact">Contact</a>
-                </li>
-                </ul>
+
+<div class="container">
+
+    <h3>Price Calculator</h3>
+
+
+    <div class="card">
+
+        <label>100 လုံး မူလ Cost (ကျပ်)</label>
+
+        <input
+            type="number"
+            id="cost"
+            placeholder="ဥပမာ 38000"
+            min="0"
+            inputmode="numeric"
+        >
+
+    </div>
+
+
+    <div class="card">
+
+        <div id="result">
+
+            <div class="empty">
+                100 လုံး Cost ထည့်ပါ
             </div>
+
         </div>
-    </nav>
-    <!-- nabar section end -->
 
-    <!-- home section start -->
-    <section id="home">
-        <div class="container-fluid mb-5">
-            <div class="w-100 position-relative">
-                <img src="image/bgimage4.jpg" class="w-100">
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   100 လုံး Cost အလိုက် Base Markup
+   ===================================================== */
+
+function getBaseMarkup(cost) {
+
+    if (cost <= 3000) {
+        return 35;
+    }
+
+    if (cost <= 5000) {
+        return 32;
+    }
+
+    if (cost <= 10000) {
+        return 28;
+    }
+
+    if (cost <= 20000) {
+        return 25;
+    }
+
+    if (cost <= 30000) {
+        return 23;
+    }
+
+    if (cost <= 50000) {
+        return 20;
+    }
+
+    if (cost <= 100000) {
+        return 18;
+    }
+
+    return 15;
+}
+
+
+/* =====================================================
+   Quantity အလိုက် Markup
+   =====================================================
+
+   100 လုံး = Base %
+   50 လုံး  = Base + 2%
+   10 လုံး  = Base + 10%
+   1 လုံး   = Base + 15%
+*/
+
+function getMarkup(quantity, baseMarkup) {
+
+    if (quantity === 100)
+        return baseMarkup;
+
+    if (quantity === 50)
+        return baseMarkup + 2;
+
+    if (quantity === 10)
+        return baseMarkup + 10;
+
+    if (quantity === 1)
+        return baseMarkup + 15;
+}
+
+
+/* =====================================================
+   ငွေပေးချေရလွယ်အောင် Round Up
+   ===================================================== */
+
+function roundPrice(price) {
+
+    let step;
+
+    if (price < 1000) {
+        step = 50;
+    }
+    else if (price < 5000) {
+        step = 100;
+    }
+    else if (price < 10000) {
+        step = 200;
+    }
+    else if (price < 50000) {
+        step = 500;
+    }
+    else if (price < 100000) {
+        step = 1000;
+    }
+    else if (price < 500000) {
+        step = 5000;
+    }
+    else {
+        step = 10000;
+    }
+
+    return Math.ceil(price / step) * step;
+}
+
+
+/* =====================================================
+   Money Format
+   ===================================================== */
+
+function money(number) {
+
+    return new Intl.NumberFormat("en-US")
+        .format(Math.round(number)) + " ကျပ်";
+
+}
+
+
+/* =====================================================
+   Calculate
+   ===================================================== */
+
+function calculate() {
+
+    const cost100 =
+        Number(document.getElementById("cost").value);
+
+    const result =
+        document.getElementById("result");
+
+
+    if (!cost100 || cost100 <= 0) {
+
+        result.innerHTML = `
+            <div class="empty">
+                100 လုံး Cost ထည့်ပါ
             </div>
-            <div class="bgItems">
-                <h3 class="text-white actor">Doctor <span class="text-danger">Strange</span></h3>
-                <h1 class="text-white mvTitle"><span class="text-danger">The Multiverse</span> Of Maddness</h1>
-                <button class="btn bgPlayBtn btn-outline-light px-3 mt-2 me-2"><i class="fa-solid bgPlay fa-play me-2"></i>Play</button>
-                <button class="btn bgPlayBtn btn-outline-light px-3 mt-2"><i class="fa-solid bgPlay fa-plus me-2"></i>Play List</button>
-            </div>
-            <div class="bgBtn rounded-circle">
-                <button class="btn btn-outline-light rounded-circle d-flex justify-content-center align-items-center"><i class="fa-solid fa-play fs-3 bgIcon"></i></button>
-            </div>
+        `;
+
+        return;
+    }
+
+
+    const baseMarkup =
+        getBaseMarkup(cost100);
+
+
+    const quantities = [
+        100,
+        50,
+        10,
+        1
+    ];
+
+
+    let html = `
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>အရေအတွက်</th>
+                    <th>ရောင်းဈေး</th>
+                    <th>အမြတ်</th>
+                    <th>အမြတ် %</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+    `;
+
+
+    quantities.forEach(quantity => {
+
+        /* Quantity အလိုက် Cost */
+
+        const cost =
+            cost100 / 100 * quantity;
+
+
+        /* Quantity အလိုက် Markup */
+
+        const markup =
+            getMarkup(quantity, baseMarkup);
+
+
+        /* Formula ဖြင့် ရောင်းဈေး */
+
+        const calculatedPrice =
+            cost * (1 + markup / 100);
+
+
+        /* Round Up */
+
+        const sellingPrice =
+            roundPrice(calculatedPrice);
+
+
+        /* အမြတ် */
+
+        const profit =
+            sellingPrice - cost;
+
+
+        /* တကယ်ရတဲ့ အမြတ် % */
+
+        const actualProfitPercent =
+            (profit / cost) * 100;
+
+
+        html += `
+
+            <tr>
+
+                <td>
+                    <strong>
+                        ${quantity} လုံး
+                    </strong>
+                </td>
+
+                <td class="price">
+                    ${money(sellingPrice)}
+                </td>
+
+                <td class="profit">
+                    ${money(profit)}
+                </td>
+
+                <td class="percent">
+                    ${actualProfitPercent.toFixed(2)}%
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    html += `
+
+            </tbody>
+
+        </table>
+
+
+        <div class="info">
+
+            <b>100 လုံး Cost:</b>
+            ${money(cost100)}
+
+            <br>
+
+            <b>Base Markup:</b>
+            ${baseMarkup}%
+
+            <br><br>
+
+            <b>တွက်ပုံ:</b>
+
+            <br>
+
+            ရောင်းဈေး =
+            Cost × (1 + Markup ÷ 100)
+
+            <br>
+
+            <small>
+                အမြတ် % သည် ဈေး Round Up ပြီးနောက်
+                တကယ်ရရှိသော အမြတ်ရာခိုင်နှုန်း ဖြစ်သည်။
+            </small>
+
         </div>
-    </section>
-    <!-- home section end -->
 
-    <!-- slide section start -->
-    <section id="release">
-        <div class="container-fluid">
-            <div class="position-relative releaseTitle">
-                <span class="newRelease fs-3">New Release in 2023</span>
-            </div>
-            <div class="swiper mySwiper mb-5 px-5 py-3">
-                <div class="swiper-wrapper  product-item">
-                    <div class="swiper-slide product-img img1">
-                        <img src="image/download (1).jpg" class="i1">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img2">
-                        <img src="image/download (2).jpg" class="i2">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img3">
-                        <img src="image/download (3).jpg" class="i3">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img4">
-                        <img src="image/download.jpg" class="i4">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img5">
-                        <img src="image/images (1).jpg" class="i5">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img6">
-                        <img src="image/images (10).jpg" class="i6">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img7">
-                        <img src="image/images (2).jpg" class="i7">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img8">
-                        <img src="image/images (3).jpg" class="i8">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide product-img img9">
-                        <img src="image/images (4).jpg" class="i9">
-                        <div class="d-flex pIcons product-action">
-                            <a href="" class="btn btn-sm btn-outline-light btn-square me-1"><i class="fa-solid fa-play"></i></a>
-                            <a href="" class="btn btn-sm btn-outline-light btn-square ms-2"><i class="fa-solid fa-info px-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <!-- <div class="swiper-pagination"></div> -->
+    `;
 
-                <!-- <div class="swiper-pagination"></div> -->
-            </div>
-        </div>
-    </section>
-    <!-- slide section end -->
 
-    <!-- main content section start -->
+    result.innerHTML = html;
+}
 
-    <!-- popular movies section start -->
-    <section id="popular">
-        <div class="container mb-3">
-            <div class="position-relative releaseTitle d-flex justify-content-between mb-3">
-                <span class="newRelease fs-3">Popular Movies</span>
-                <div class="seeAllBtn">
-                    <button class="btn btn-danger text-white seeAllBtn2">see all</button>
-                </div>
-            </div>
-            <div class="row shadow-sm px-2 pt-4 pb-2" style="background: #211a1a;">
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download (2).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                    <!-- <div class="mb-2">
-                        <button class="btn btn-sm btn-success text-white">Edit</button>
-                        <button class="btn btn-sm btn-danger text-white">Delete</button>
-                    </div> -->
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download (3).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (1).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (3).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (2).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- popular movies section end -->
 
-    <!-- movie collection section start -->
-    <section id="movies">
-        <div class="container mb-3">
-            <div class="position-relative releaseTitle d-flex justify-content-between mb-3">
-                <span class="newRelease fs-3">Movies Collection</span>
-                <div class="seeAllBtn">
-                    <button class="btn btn-danger text-white seeAllBtn2">see all</button>
-                </div>
-            </div>
-            <div class="row shadow-sm px-2 pt-4 pb-2" style="background: #211a1a;">
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (4).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (5).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (6).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (7).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/bgimage3.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (4).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (5).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (6).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (7).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/bgimage3.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- movie collection section end -->
+/* =====================================================
+   Live Calculation
+   ===================================================== */
 
-    <!-- series collection section start -->
-    <section id="series">
-        <div class="container mb-3">
-            <div class="position-relative releaseTitle d-flex justify-content-between mb-3">
-                <span class="newRelease fs-3">Series Collection</span>
-                <div class="seeAllBtn">
-                    <button class="btn btn-danger text-white seeAllBtn2">see all</button>
-                </div>
-            </div>
-            <div class="row shadow-sm px-2 pt-4 pb-2" style="background: #211a1a;">
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download (2).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download (1).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (1).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (4).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (6).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download (2).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download (1).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (1).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (4).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/images (6).jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-                <div class="col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-12 text-center mb-4 mvCard">
-                    <img src="image/download.jpg" style="height: 300px; width: 100%;" class="mb-3 object-fit-cover">
-                    <p class="fw-bold fs-5 text-light">multiverse of madness</p>
-                    <p class="fw-bold text-white">advenger || <span class="text-danger">175 mins</span></p>
-                    <p class="fw-bold">
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                        <i class="fa-solid text-danger fa-star"></i>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- series collection section end -->
+document
+    .getElementById("cost")
+    .addEventListener("input", calculate);
 
-    <!-- main content section end -->
+</script>
 
-    <!-- contact section start -->
-    <section id="contact">
-        <div class="container mt-5">
-            <div class="row mb-5 d-flex justify-content-center align-items-center">
-                <div class="col-lg-8 text-center">
-                    <span class="text-white fs-3">Contact Me</span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-6 mb-3">
-                    <div class="form-group">
-                        <label for="" class="text-white">First Name</label>
-                        <input type="text" class="form-control text-white" style="background: #211a1a !important;">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="form-group">
-                        <label for="" class="text-white">Last Name</label>
-                        <input type="text" class="form-control text-white" style="background: #211a1a !important;">
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12 col-lg-6 mb-3">
-                    <div class="form-group">
-                        <label for="" class="text-white">Email</label>
-                        <input type="text" class="form-control text-white" style="background: #211a1a !important;">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="form-group">
-                        <label for="" class="text-white">Phone</label>
-                        <input type="text" class="form-control text-white" style="background: #211a1a !important;">
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-                        <label for="" class="text-white">Message</label>
-                        <textarea name="" id="" cols="30" rows="10" class="form-control text-white" style="background: #211a1a !important;"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center my-5">
-                <div class="">
-                    <span class="text-white fw-bold fs-5 ft-myMv"><i class="fa-solid fa-clapperboard me-2"></i>My Movie</span>
-                </div>
-                <div class="text-white">
-                    <a href="" class="text-decoration-none ft-btn text-white ms-2" title="facebook"><i class="fa-brands fa-facebook ft-icon rounded-circle"></i></a>
-                    <a href="" class="text-decoration-none ft-btn text-white ms-2" title="telegram"><i class="fa-brands fa-telegram ft-icon rounded-circle"></i></a>
-                    <a href="" class="text-decoration-none ft-btn text-white ms-2" title="twitter"><i class="fa-brands fa-twitter ft-icon rounded-circle"></i></a>
-                    <a href="" class="text-decoration-none ft-btn text-white ms-2" title="linkedin"><i class="fa-brands fa-linkedin-in ft-icon rounded-circle"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- contact section end -->
-
-    <!-- footer section start -->
-    <section>
-        <div class="d-flex justify-content-center align-items-center" style="border-top: 1px solid white; background: red;">
-            <div class="col-lg-8 text-center p-3">
-                <div class="text-white ft-text">Watch Movies To Get Powerful Knowledges And Have fun Like Reading Books</div>
-            </div>
-        </div>
-    </section>
-    <!-- footer section end -->
 </body>
-<!-- bootstrap link -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
-<!-- swiperjs link -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-<!-- javascript link -->
-<script src="app.js"></script>
-
 </html>
